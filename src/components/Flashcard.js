@@ -1,4 +1,3 @@
-// src/components/Flashcard.js
 import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 
@@ -17,15 +16,27 @@ const Flashcard = ({ flashcard }) => {
     >
       <animated.div 
         className="front" 
-        style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
+        style={{ opacity: opacity.to(o => 1 - o), transform }}
       >
-        {flashcard.question}
+        <h2>{flashcard.title}</h2>
+        <p className={`difficulty ${flashcard.difficulty.toLowerCase()}`}>{flashcard.difficulty}</p>
+        <p>{flashcard.description}</p>
+        <p className="example">{flashcard.example}</p>
+        <p className="type">{flashcard.type}</p>
       </animated.div>
       <animated.div 
         className="back" 
-        style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}
+        style={{ opacity, transform: transform.to(t => `${t} rotateY(180deg)`) }}
       >
-        {flashcard.answer}
+
+        <div className="code">
+          
+          <pre>{flashcard.codeanswer}</pre>
+        </div>
+        <div className="explanation">
+         
+          <p>{flashcard.answerexplanation}</p>
+        </div>
       </animated.div>
     </div>
   );

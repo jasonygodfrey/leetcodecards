@@ -1,17 +1,16 @@
-// src/App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FlashcardList from './components/FlashcardList';
 import './App.css';
 
-const initialFlashcards = Array.from({ length: 75 }, (_, i) => ({
-  id: i,
-  question: `LeetCode Question ${i + 1}`,
-  answer: `Answer for LeetCode Question ${i + 1}`
-}));
-
 const App = () => {
-  const [flashcards] = useState(initialFlashcards);
+  const [flashcards, setFlashcards] = useState([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  useEffect(() => {
+    fetch('/cards.json')
+      .then(response => response.json())
+      .then(data => setFlashcards(data));
+  }, []);
 
   const handleCardChange = (index) => {
     setCurrentCardIndex(index);
@@ -29,9 +28,14 @@ const App = () => {
     );
   };
 
+  const handleShuffle = () => {
+    const newIndex = Math.floor(Math.random() * flashcards.length);
+    setCurrentCardIndex(newIndex); // Set current index to a random index
+  };
+
   return (
     <div className="App">
-      <h1>Leetcode Flashcards</h1>
+      <h1>LeetCode Blind75 Flashcards</h1>
       <div className="navigation">
         {flashcards.map((flashcard, index) => (
           <button
@@ -43,7 +47,13 @@ const App = () => {
           </button>
         ))}
       </div>
-      <FlashcardList flashcards={flashcards} currentCardIndex={currentCardIndex} handleNextCard={handleNextCard} handlePreviousCard={handlePreviousCard} />
+      <FlashcardList
+        flashcards={flashcards}
+        currentCardIndex={currentCardIndex}
+        handleNextCard={handleNextCard}
+        handlePreviousCard={handlePreviousCard}
+        handleShuffle={handleShuffle}
+      />
     </div>
   );
 };
