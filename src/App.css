@@ -17,7 +17,6 @@ body {
   height: 110vh;
   position: relative;
   overflow: hidden; /* Prevent scrolling within the app container */
-
 }
 
 h1 {
@@ -35,6 +34,7 @@ h1 {
   align-items: center;
   justify-content: center;
   width: 250px; /* Increased width */
+  margin-bottom: 200px; /* Added margin-bottom to position higher */
 }
 
 .navigation {
@@ -45,12 +45,12 @@ h1 {
   overflow-x: auto; /* Allow horizontal scrolling */
   overflow-y: hidden; /* Prevent vertical scroll */
   padding: 10px;
-  border: 1px solid #444;
+  border: 0px solid #444;
   border-radius: 8px;
-  background-color: #1e1e1e;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  position: absolute;
-  bottom: 20%; /* Position at the bottom of the screen */
+  background-color: #1e1e1e00;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
+  position: fixed; /* Changed from absolute to fixed */
+  bottom: 100px; /* Position above the navigation buttons */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -221,15 +221,16 @@ h1 {
 
 .navigation-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center the navigation buttons */
+  gap: 40px; /* Add some space between buttons */
   width: 100%;
   position: fixed; /* Changed from absolute to fixed */
-  bottom: 0; /* Position at the bottom of the screen */
+  bottom: 10px; /* Position slightly above the bottom of the screen */
   left: 50%;
   transform: translateX(-50%);
   padding: 10px 0; /* Optional: add padding if needed */
-  background-color: #1e1e1e; /* Optional: background color for the navigation container */
-  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5); /* Optional: shadow for better visibility */
+  background-color: #1e1e1e00; /* Optional: background color for the navigation container */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.); /* Optional: shadow for better visibility */
 }
 
 .navigation-buttons button {
