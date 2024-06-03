@@ -19,22 +19,21 @@ const Flashcard = ({ flashcard }) => {
         style={{ opacity: opacity.to(o => 1 - o), transform }}
       >
         <h2>{flashcard.title}</h2>
-        <p className={`difficulty ${flashcard.difficulty.toLowerCase()}`}>{flashcard.difficulty}</p>
         <p>{flashcard.description}</p>
         <p className="example">{flashcard.example}</p>
-        <p className="type">{flashcard.type}</p>
+        <div className="meta">
+          <p className="type">{flashcard.type}</p>
+          <p className={`difficulty ${flashcard.difficulty.toLowerCase()}`}>{flashcard.difficulty}</p>
+        </div>
       </animated.div>
       <animated.div 
         className="back" 
         style={{ opacity, transform: transform.to(t => `${t} rotateY(180deg)`) }}
       >
-
         <div className="code">
-          
           <pre>{flashcard.codeanswer}</pre>
         </div>
         <div className="explanation">
-         
           <p>{flashcard.answerexplanation}</p>
         </div>
       </animated.div>

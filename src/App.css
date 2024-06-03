@@ -114,6 +114,7 @@ h1 {
 }
 
 .flashcard {
+  font-size: 10px;
   background: #1e1e1e00;
   border: 0px solid #444;
   border-radius: 0px;
@@ -170,29 +171,33 @@ h1 {
   margin-bottom: 5px;
 }
 
+.flashcard .meta {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: right;
+}
+
+.flashcard .type {
+  font-size: 1em;
+  color: #888;
+}
+
 .flashcard .difficulty {
   font-size: 1em;
-  margin-bottom: 10px;
+  margin-top: 5px;
 }
 
 .flashcard .difficulty.easy {
   color: green;
 }
 
-.flashcard .difficulty.medium {
+flashcard .difficulty.medium {
   color: yellow;
 }
 
-.flashcard .difficulty.hard {
+flashcard .difficulty.hard {
   color: red;
-}
-
-.flashcard .type {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 1em;
-  color: #888;
 }
 
 .flashcard .description {
@@ -212,7 +217,7 @@ h1 {
 
 .flashcard .code pre {
   background: #222;
-  padding: 10px;
+  padding: 5px;
   border-radius: 8px;
   white-space: pre-wrap; /* Ensure long lines break within the container */
   word-break: break-word; /* Ensure long words break within the container */
