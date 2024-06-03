@@ -16,13 +16,16 @@ body {
   justify-content: center;
   height: 110vh;
   position: relative;
+  overflow: hidden; /* Prevent scrolling within the app container */
+
 }
 
 h1 {
   color: #e0e0e0;
   position: absolute;
-  top: 20px;
+  top: 10px;
   left: 50%;
+  font-size: small;
   transform: translateX(-50%);
 }
 
@@ -31,31 +34,32 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 450px; /* Increased width */
+  width: 250px; /* Increased width */
 }
 
 .navigation {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Change to row for horizontal layout */
   align-items: center;
-  height: 80vh; /* Allow space for the title and margins */
-  overflow-y: auto;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  width: 90vw; /* Adjust the width as needed */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scroll */
   padding: 10px;
   border: 1px solid #444;
   border-radius: 8px;
   background-color: #1e1e1e;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   position: absolute;
-  left: 20px;
-  top: 60px;
+  bottom: 20%; /* Position at the bottom of the screen */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .navigation button {
   background-color: #333;
   border: 1px solid #555;
   border-radius: 5px;
-  margin: 5px 0;
+  margin: 0 5px; /* Adjust margin for horizontal spacing */
   padding: 5px 10px;
   cursor: pointer;
   color: #e0e0e0;
@@ -68,7 +72,7 @@ h1 {
 
 /* Custom Scrollbar */
 .navigation::-webkit-scrollbar {
-  width: 16px;
+  height: 16px; /* Change to height for horizontal scrollbar */
 }
 
 .navigation::-webkit-scrollbar-track {
@@ -89,32 +93,32 @@ h1 {
 .navigation::-webkit-scrollbar-button:single-button {
   background-color: #555;
   border-radius: 8px;
-  height: 20px;
-  width: 16px;
+  width: 20px;
+  height: 16px;
 }
 
-.navigation::-webkit-scrollbar-button:single-button:vertical:decrement {
+.navigation::-webkit-scrollbar-button:single-button:horizontal:decrement {
   background-color: #555;
   border-radius: 8px;
-  height: 20px;
-  width: 16px;
-  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="%23e0e0e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="12 15 8 9 4 15"></polyline></svg>') no-repeat center;
+  width: 20px;
+  height: 16px;
+  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="%23e0e0e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 4 9 8 15 12"></polyline></svg>') no-repeat center;
 }
 
-.navigation::-webkit-scrollbar-button:single-button:vertical:increment {
+.navigation::-webkit-scrollbar-button:single-button:horizontal:increment {
   background-color: #555;
   border-radius: 8px;
-  height: 20px;
-  width: 16px;
-  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="%23e0e0e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="12 9 8 15 4 9"></polyline></svg>') no-repeat center;
+  width: 20px;
+  height: 16px;
+  background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="%23e0e0e0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 4 15 8 9 12"></polyline></svg>') no-repeat center;
 }
 
 .flashcard {
   background: #1e1e1e00;
   border: 0px solid #444;
   border-radius: 0px;
-  width: 450px; /* Increased width */
-  height: 450px; /* Increased height */
+  width: 250px; /* Increased width */
+  height: 350px; /* Increased height */
   perspective: 1000px;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.);
@@ -219,7 +223,13 @@ h1 {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 80px;
+  position: fixed; /* Changed from absolute to fixed */
+  bottom: 0; /* Position at the bottom of the screen */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 0; /* Optional: add padding if needed */
+  background-color: #1e1e1e; /* Optional: background color for the navigation container */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5); /* Optional: shadow for better visibility */
 }
 
 .navigation-buttons button {
